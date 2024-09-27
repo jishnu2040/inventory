@@ -1,83 +1,87 @@
-# inventory/views.py
+import logging
 from django.core.cache import cache
 from rest_framework import generics
-from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
 from .models import Item
 from .serializers import ItemSerializer
-import logging
+from rest_framework.permissions import IsAuthenticated
 
-# Configure logging
-logger = logging.getLogger(__name__)
+# Initialize logger for the app
+logger = logging.getLogger('__name__')
 
-# List and Create Items (GET and POST)
 class ItemListCreateView(generics.ListCreateAPIView):
     queryset = Item.objects.all()
     serializer_class = ItemSerializer
     permission_classes = [IsAuthenticated]
-    
+
     def get_queryset(self):
-        cache_key = 'item_list'  # Key to cache the item list
-        item_list = cache.get(cache_key)
+        # Try to retrieve cached items first
+        cached_items = cache.get('item_list')
+        if cached_items:
+            logger.info(f"Retrieved item list from cache for user {self.request.user}.")
+            return cached_items
+        
+        # If no cache, retrieve from database
+        logger.info(f"{self.request.user} requested the item list from database.")
+        items = super().get_queryset()
 
-        if item_list:
-        # If item list is found in the cache, return it
-            return item_list
-
-        # If not found, fetch from the database and cache the result
-        queryset = Item.objects.all()
-        cache.set(cache_key, queryset, timeout=60*5)  # Cache for 5 minutes
-        return queryset
+        # Cache the result for future requests
+        cache.set('item_list', items, timeout=60*15)  # Cache for 15 minutes
+        return items
 
     def perform_create(self, serializer):
-        serializer.save()
+        # Save new item and log creation
+        item = serializer.save()
+        logger.info(f"New item created by {self.request.user}: {item}")
 
-        # Invalidate cache after a new item is created
-        cache_key = 'item_list'
-        cache.delete(cache_key)
+        # Invalidate cache since data has changed
+        cache.delete('item_list')
+        logger.info(f"Cache invalidated for item list after creation by {self.request.user}.")
 
-
-
-
-
-
-# Retrieve, Update, and Delete an Item (GET, PUT, DELETE)
 class ItemDetailUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Item.objects.all()
     serializer_class = ItemSerializer
     permission_classes = [IsAuthenticated]
     lookup_field = 'pk'
-    
-    def retrieve(self, request, *args, **kwargs):
-        item_id = kwargs.get('pk')
-        cache_key = f'item_{item_id}'
-        
-        # Try to fetch the item from Redis
-        item_data = cache.get(cache_key)
-        if item_data:
-            return Response(item_data)
 
-        # Fetch from the database
-        instance = self.get_object()
-        serializer = self.get_serializer(instance)
+    def retrieve(self, request, *args, **kwargs):
+        # Log item retrieval and fetch from cache if available
+        item_id = self.kwargs['pk']
+        cached_item = cache.get(f'item_{item_id}')
         
-        # Cache the serialized data for future requests
-        cache.set(cache_key, serializer.data, timeout=60*5)  # Cache for 5 minutes
-        
-        return Response(serializer.data)
+        if cached_item:
+            logger.info(f"Item {item_id} retrieved from cache by {self.request.user}.")
+            return cached_item
+
+        # If not cached, fetch from database
+        response = super().retrieve(request, *args, **kwargs)
+        logger.info(f"Item {item_id} retrieved by {self.request.user} from database.")
+
+        # Cache the retrieved item
+        cache.set(f'item_{item_id}', response.data, timeout=60*15)  # Cache for 15 minutes
+        return response
 
     def update(self, request, *args, **kwargs):
+        # Log item update
+        item_id = self.kwargs['pk']
         response = super().update(request, *args, **kwargs)
-        # Invalidate cache after update
-        item_id = kwargs.get('pk')
-        cache_key = f'item_{item_id}'
-        cache.delete(cache_key)
+        logger.info(f"Item {item_id} updated by {self.request.user}.")
+
+        # Invalidate cache for both the item and item list
+        cache.delete(f'item_{item_id}')
+        cache.delete('item_list')
+        logger.info(f"Cache invalidated for item {item_id} and item list after update by {self.request.user}.")
         return response
 
     def destroy(self, request, *args, **kwargs):
+        # Log item deletion
+        item_id = self.kwargs['pk']
+        item = self.get_object()
+        logger.info(f"Item {item_id} deleted by {self.request.user}.")
+        
         response = super().destroy(request, *args, **kwargs)
-        # Invalidate cache after deletion
-        item_id = kwargs.get('pk')
-        cache_key = f'item_{item_id}'
-        cache.delete(cache_key)
+
+        # Invalidate cache for both the item and item list
+        cache.delete(f'item_{item_id}')
+        cache.delete('item_list')
+        logger.info(f"Cache invalidated for item {item_id} and item list after deletion by {self.request.user}.")
         return response

@@ -1,0 +1,288 @@
+INFO 2024-09-26 23:28:58,762 autoreload Watching for file changes with StatReloader
+INFO 2024-09-26 23:34:27,410 autoreload Watching for file changes with StatReloader
+INFO 2024-09-27 08:37:57,866 autoreload Watching for file changes with StatReloader
+INFO 2024-09-27 09:08:13,742 basehttp "POST /api/v1/accounts/login/ HTTP/1.1" 200 554
+INFO 2024-09-27 09:09:08,522 basehttp "GET /api/v1/inventory/ HTTP/1.1" 200 1464
+WARNING 2024-09-27 09:13:07,796 log Bad Request: /api/v1/accounts/register/
+WARNING 2024-09-27 09:13:07,878 basehttp "POST /api/v1/accounts/register/ HTTP/1.1" 400 105
+INFO 2024-09-27 09:13:09,280 basehttp "POST /api/v1/accounts/login/ HTTP/1.1" 200 554
+WARNING 2024-09-27 09:13:09,372 log Unauthorized: /api/v1/inventory/
+WARNING 2024-09-27 09:13:09,375 basehttp "POST /api/v1/inventory/ HTTP/1.1" 401 183
+ERROR 2024-09-27 09:13:09,448 exception Invalid HTTP_HOST header: '<calculated when request is sent>'. The domain name provided is not valid according to RFC 1034/1035.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/utils/deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '<calculated when request is sent>'. The domain name provided is not valid according to RFC 1034/1035.
+WARNING 2024-09-27 09:13:09,850 log Bad Request: /api/v1/inventory/
+WARNING 2024-09-27 09:13:09,856 basehttp "GET /api/v1/inventory/ HTTP/1.1" 400 62246
+WARNING 2024-09-27 09:13:10,498 log Unauthorized: /api/v1/inventory/40/
+WARNING 2024-09-27 09:13:10,503 basehttp "GET /api/v1/inventory/40/ HTTP/1.1" 401 183
+ERROR 2024-09-27 09:13:10,947 log Internal Server Error: /api/v1/inventory/27
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/utils/deprecation.py", line 131, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via PATCH, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining PATCH data. Change your form to point to localhost:8000/api/v1/inventory/27/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2024-09-27 09:13:11,004 basehttp "PATCH /api/v1/inventory/27 HTTP/1.1" 500 62767
+WARNING 2024-09-27 09:13:12,988 log Unauthorized: /api/v1/inventory/40/
+WARNING 2024-09-27 09:13:13,196 basehttp "DELETE /api/v1/inventory/40/ HTTP/1.1" 401 58
+INFO 2024-09-27 09:15:54,286 basehttp "POST /api/v1/accounts/register/ HTTP/1.1" 201 107
+INFO 2024-09-27 09:15:55,423 basehttp "POST /api/v1/accounts/login/ HTTP/1.1" 200 545
+WARNING 2024-09-27 09:15:55,521 log Unauthorized: /api/v1/inventory/
+WARNING 2024-09-27 09:15:55,528 basehttp "POST /api/v1/inventory/ HTTP/1.1" 401 183
+ERROR 2024-09-27 09:15:55,634 exception Invalid HTTP_HOST header: '<calculated when request is sent>'. The domain name provided is not valid according to RFC 1034/1035.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/utils/deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '<calculated when request is sent>'. The domain name provided is not valid according to RFC 1034/1035.
+WARNING 2024-09-27 09:15:55,838 log Bad Request: /api/v1/inventory/
+WARNING 2024-09-27 09:15:55,847 basehttp "GET /api/v1/inventory/ HTTP/1.1" 400 62246
+WARNING 2024-09-27 09:15:56,261 log Unauthorized: /api/v1/inventory/40/
+WARNING 2024-09-27 09:15:56,295 basehttp "GET /api/v1/inventory/40/ HTTP/1.1" 401 183
+ERROR 2024-09-27 09:15:56,550 log Internal Server Error: /api/v1/inventory/27
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/utils/deprecation.py", line 131, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via PATCH, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining PATCH data. Change your form to point to localhost:8000/api/v1/inventory/27/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2024-09-27 09:15:56,558 basehttp "PATCH /api/v1/inventory/27 HTTP/1.1" 500 62767
+WARNING 2024-09-27 09:15:57,087 log Unauthorized: /api/v1/inventory/40/
+WARNING 2024-09-27 09:15:57,097 basehttp "DELETE /api/v1/inventory/40/ HTTP/1.1" 401 58
+INFO 2024-09-27 09:36:44,316 autoreload /app/inventory/settings.py changed, reloading.
+INFO 2024-09-27 09:37:22,796 autoreload Watching for file changes with StatReloader
+INFO 2024-09-27 09:37:40,824 autoreload /app/inventory/settings.py changed, reloading.
+INFO 2024-09-27 09:38:00,993 autoreload Watching for file changes with StatReloader
+INFO 2024-09-27 09:40:31,360 basehttp "POST /api/v1/accounts/login/ HTTP/1.1" 200 545
+WARNING 2024-09-27 09:49:43,271 log Bad Request: /api/v1/accounts/register/
+WARNING 2024-09-27 09:49:43,313 basehttp "POST /api/v1/accounts/register/ HTTP/1.1" 400 105
+INFO 2024-09-27 09:49:44,978 basehttp "POST /api/v1/accounts/login/ HTTP/1.1" 200 545
+WARNING 2024-09-27 09:49:45,193 log Unauthorized: /api/v1/inventory/
+WARNING 2024-09-27 09:49:45,196 basehttp "POST /api/v1/inventory/ HTTP/1.1" 401 183
+ERROR 2024-09-27 09:49:45,391 exception Invalid HTTP_HOST header: '<calculated when request is sent>'. The domain name provided is not valid according to RFC 1034/1035.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/utils/deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '<calculated when request is sent>'. The domain name provided is not valid according to RFC 1034/1035.
+WARNING 2024-09-27 09:49:46,255 log Bad Request: /api/v1/inventory/
+WARNING 2024-09-27 09:49:46,264 basehttp "GET /api/v1/inventory/ HTTP/1.1" 400 62246
+WARNING 2024-09-27 09:49:46,586 log Unauthorized: /api/v1/inventory/40/
+WARNING 2024-09-27 09:49:46,587 basehttp "GET /api/v1/inventory/40/ HTTP/1.1" 401 183
+ERROR 2024-09-27 09:49:46,892 log Internal Server Error: /api/v1/inventory/27
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/utils/deprecation.py", line 131, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via PATCH, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining PATCH data. Change your form to point to localhost:8000/api/v1/inventory/27/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2024-09-27 09:49:46,899 basehttp "PATCH /api/v1/inventory/27 HTTP/1.1" 500 62767
+INFO 2024-09-27 09:49:47,329 basehttp "DELETE /api/v1/inventory/40/ HTTP/1.1" 204 0
+WARNING 2024-09-27 09:49:47,561 log Bad Request: /api/v1/accounts/register/
+WARNING 2024-09-27 09:49:47,563 basehttp "POST /api/v1/accounts/register/ HTTP/1.1" 400 105
+INFO 2024-09-27 09:49:48,999 basehttp "POST /api/v1/accounts/login/ HTTP/1.1" 200 545
+WARNING 2024-09-27 09:49:49,189 log Unauthorized: /api/v1/inventory/
+WARNING 2024-09-27 09:49:49,192 basehttp "POST /api/v1/inventory/ HTTP/1.1" 401 183
+ERROR 2024-09-27 09:49:49,335 exception Invalid HTTP_HOST header: '<calculated when request is sent>'. The domain name provided is not valid according to RFC 1034/1035.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/utils/deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '<calculated when request is sent>'. The domain name provided is not valid according to RFC 1034/1035.
+WARNING 2024-09-27 09:49:49,433 log Bad Request: /api/v1/inventory/
+WARNING 2024-09-27 09:49:49,469 basehttp "GET /api/v1/inventory/ HTTP/1.1" 400 62246
+WARNING 2024-09-27 09:49:51,063 log Unauthorized: /api/v1/inventory/40/
+WARNING 2024-09-27 09:49:51,167 basehttp "GET /api/v1/inventory/40/ HTTP/1.1" 401 183
+ERROR 2024-09-27 09:49:51,560 log Internal Server Error: /api/v1/inventory/27
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/utils/deprecation.py", line 131, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via PATCH, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining PATCH data. Change your form to point to localhost:8000/api/v1/inventory/27/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2024-09-27 09:49:52,125 basehttp "PATCH /api/v1/inventory/27 HTTP/1.1" 500 62767
+WARNING 2024-09-27 09:49:56,391 log Not Found: /api/v1/inventory/40/
+WARNING 2024-09-27 09:49:56,405 basehttp "DELETE /api/v1/inventory/40/ HTTP/1.1" 404 45
+WARNING 2024-09-27 09:53:42,455 log Bad Request: /api/v1/accounts/register/
+WARNING 2024-09-27 09:53:42,532 basehttp "POST /api/v1/accounts/register/ HTTP/1.1" 400 105
+INFO 2024-09-27 09:53:45,537 basehttp "POST /api/v1/accounts/login/ HTTP/1.1" 200 545
+WARNING 2024-09-27 09:53:45,776 log Unauthorized: /api/v1/inventory/
+WARNING 2024-09-27 09:53:45,779 basehttp "POST /api/v1/inventory/ HTTP/1.1" 401 183
+ERROR 2024-09-27 09:53:46,169 exception Invalid HTTP_HOST header: '<calculated when request is sent>'. The domain name provided is not valid according to RFC 1034/1035.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/utils/deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '<calculated when request is sent>'. The domain name provided is not valid according to RFC 1034/1035.
+WARNING 2024-09-27 09:53:48,036 log Bad Request: /api/v1/inventory/
+WARNING 2024-09-27 09:53:48,088 basehttp "GET /api/v1/inventory/ HTTP/1.1" 400 62246
+WARNING 2024-09-27 09:53:49,402 log Unauthorized: /api/v1/inventory/40/
+WARNING 2024-09-27 09:53:49,417 basehttp "GET /api/v1/inventory/40/ HTTP/1.1" 401 183
+ERROR 2024-09-27 09:53:49,858 log Internal Server Error: /api/v1/inventory/27
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/utils/deprecation.py", line 131, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via PATCH, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining PATCH data. Change your form to point to localhost:8000/api/v1/inventory/27/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2024-09-27 09:53:49,877 basehttp "PATCH /api/v1/inventory/27 HTTP/1.1" 500 62767
+WARNING 2024-09-27 09:53:50,530 log Not Found: /api/v1/inventory/40/
+WARNING 2024-09-27 09:53:50,536 basehttp "DELETE /api/v1/inventory/40/ HTTP/1.1" 404 45
+WARNING 2024-09-27 09:53:50,935 log Bad Request: /api/v1/accounts/register/
+WARNING 2024-09-27 09:53:50,937 basehttp "POST /api/v1/accounts/register/ HTTP/1.1" 400 105
+INFO 2024-09-27 09:53:53,160 basehttp "POST /api/v1/accounts/login/ HTTP/1.1" 200 545
+WARNING 2024-09-27 09:53:53,468 log Unauthorized: /api/v1/inventory/
+WARNING 2024-09-27 09:53:53,517 basehttp "POST /api/v1/inventory/ HTTP/1.1" 401 183
+ERROR 2024-09-27 09:53:55,167 exception Invalid HTTP_HOST header: '<calculated when request is sent>'. The domain name provided is not valid according to RFC 1034/1035.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/utils/deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '<calculated when request is sent>'. The domain name provided is not valid according to RFC 1034/1035.
+WARNING 2024-09-27 09:53:55,496 log Bad Request: /api/v1/inventory/
+WARNING 2024-09-27 09:53:55,603 basehttp "GET /api/v1/inventory/ HTTP/1.1" 400 62246
+WARNING 2024-09-27 09:53:55,925 log Unauthorized: /api/v1/inventory/40/
+WARNING 2024-09-27 09:53:55,942 basehttp "GET /api/v1/inventory/40/ HTTP/1.1" 401 183
+ERROR 2024-09-27 09:53:56,485 log Internal Server Error: /api/v1/inventory/27
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/utils/deprecation.py", line 131, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via PATCH, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining PATCH data. Change your form to point to localhost:8000/api/v1/inventory/27/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2024-09-27 09:53:56,502 basehttp "PATCH /api/v1/inventory/27 HTTP/1.1" 500 62767
+WARNING 2024-09-27 09:53:57,463 log Not Found: /api/v1/inventory/40/
+WARNING 2024-09-27 09:53:57,532 basehttp "DELETE /api/v1/inventory/40/ HTTP/1.1" 404 45
+WARNING 2024-09-27 09:54:35,852 log Bad Request: /api/v1/accounts/register/
+WARNING 2024-09-27 09:54:35,908 basehttp "POST /api/v1/accounts/register/ HTTP/1.1" 400 105
+INFO 2024-09-27 09:54:37,406 basehttp "POST /api/v1/accounts/login/ HTTP/1.1" 200 545
+WARNING 2024-09-27 09:54:37,503 log Unauthorized: /api/v1/inventory/
+WARNING 2024-09-27 09:54:37,505 basehttp "POST /api/v1/inventory/ HTTP/1.1" 401 183
+ERROR 2024-09-27 09:54:37,662 exception Invalid HTTP_HOST header: '<calculated when request is sent>'. The domain name provided is not valid according to RFC 1034/1035.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/utils/deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '<calculated when request is sent>'. The domain name provided is not valid according to RFC 1034/1035.
+WARNING 2024-09-27 09:54:37,920 log Bad Request: /api/v1/inventory/
+WARNING 2024-09-27 09:54:37,931 basehttp "GET /api/v1/inventory/ HTTP/1.1" 400 62246
+WARNING 2024-09-27 09:54:38,179 log Unauthorized: /api/v1/inventory/40/
+WARNING 2024-09-27 09:54:38,260 basehttp "GET /api/v1/inventory/40/ HTTP/1.1" 401 183
+ERROR 2024-09-27 09:54:39,076 log Internal Server Error: /api/v1/inventory/27
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/utils/deprecation.py", line 131, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via PATCH, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining PATCH data. Change your form to point to localhost:8000/api/v1/inventory/27/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2024-09-27 09:54:39,091 basehttp "PATCH /api/v1/inventory/27 HTTP/1.1" 500 62767
+WARNING 2024-09-27 09:54:39,778 log Not Found: /api/v1/inventory/40/
+WARNING 2024-09-27 09:54:39,780 basehttp "DELETE /api/v1/inventory/40/ HTTP/1.1" 404 45

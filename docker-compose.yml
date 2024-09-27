@@ -28,5 +28,16 @@ services:
     ports:
       - "6379:6379"
 
+  test:
+    build: .
+    volumes:
+      - .:/app
+    command: ["python", "manage.py", "test"]
+    environment:
+      - DEBUG=1
+      - DATABASE_URL=postgres://user:password@db:5432/inventoryManagement_db
+    depends_on:
+      - db
+
 volumes:
   postgres_data:
